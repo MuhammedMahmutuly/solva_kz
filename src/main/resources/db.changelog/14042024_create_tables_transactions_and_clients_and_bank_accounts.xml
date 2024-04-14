@@ -1,0 +1,34 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="14042024_create_table_transactions" author="Muhammed">
+        <sql>
+            CREATE TABLE TRANSACTIONS
+            (
+                id              BINARY(16) not null primary key,
+                transactionSum  numeric    not null,
+                transactionDate date       not null,
+                setLimitDate    date       not null,
+                limit           numeric    not null,
+                limitExceeded   numeric(1) not null
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="14042024_create_table_bank_accounts" author="Muhammed">
+        <sql>
+            CREATE TABLE BANK_ACCOUNTS
+            (
+                id     BINARY(16) not null primary key,
+                name   varchar(100) not null,
+                number numeric      not null
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="14042024_create_table_services_clients" author="Muhammed">
+        <sql>
+            CREATE TABLE CLIENTS
+            (
+                id  BINARY(16) not null,
+                fullName   varchar(100) not null
+            )
+        </sql>
+    </changeSet>
+</databaseChangeLog>
